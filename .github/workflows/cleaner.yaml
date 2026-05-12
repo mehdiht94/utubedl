@@ -35,18 +35,18 @@ jobs:
           echo "AVASAM (https://avasam.ir) - Cleaning downloads folder"
           echo ""
 
-          if [ -d "downloads" ]; then
+          if [ -d "videos" ]; then
             echo "Removing downloads folder..."
-            git rm -rf downloads/ 2>/dev/null || true
-            rm -rf downloads/ 2>/dev/null || true
+            git rm -rf videos/ 2>/dev/null || true
+            rm -rf videos/ 2>/dev/null || true
           else
             echo "Downloads folder doesn't exist, will create it."
           fi
 
-          mkdir -p downloads
+          mkdir -p videos
           printf '## empty\nfor start go Action tab and use left side workflows\n' > downloads/README.md
 
-          git add -f downloads/README.md
+          git add -f videos/README.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -68,10 +68,10 @@ jobs:
               git reset --hard HEAD~1 2>/dev/null || true
               git pull --rebase origin "$BRANCH" 2>/dev/null || true
 
-              rm -rf downloads/ 2>/dev/null || true
-              mkdir -p downloads
+              rm -rf videos/ 2>/dev/null || true
+              mkdir -p videos
               printf '## empty\nfor start go Action tab and use left side workflows\n' > downloads/README.md
-              git add -f downloads/README.md
+              git add -f videos/README.md
               git commit -m "[AVASAM] Clean downloads folder [skip ci]" 2>/dev/null || true
             }
 
