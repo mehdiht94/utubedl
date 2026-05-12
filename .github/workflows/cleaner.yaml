@@ -44,7 +44,7 @@ jobs:
           fi
 
           mkdir -p videos
-          printf '## empty\nfor start go Action tab and use left side workflows\n' > downloads/README.md
+          printf '## empty\nfor start go Action tab and use left side workflows\n' > videos/README.md
 
           git add -f videos/README.md
 
@@ -70,7 +70,7 @@ jobs:
 
               rm -rf videos/ 2>/dev/null || true
               mkdir -p videos
-              printf '## empty\nfor start go Action tab and use left side workflows\n' > downloads/README.md
+              printf '## empty\nfor start go Action tab and use left side workflows\n' > videos/README.md
               git add -f videos/README.md
               git commit -m "[AVASAM] Clean downloads folder [skip ci]" 2>/dev/null || true
             }
