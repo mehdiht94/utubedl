@@ -43,11 +43,7 @@ jobs:
             echo "Downloads folder doesn't exist, will create it."
           fi
 
-          mkdir -p videos
-          printf '## empty\nfor start go Action tab and use left side workflows\n' > videos/README.md
-
-          git add -f videos/README.md
-
+          
           if git diff --staged --quiet; then
             echo "No changes to commit."
             exit 0
@@ -69,9 +65,7 @@ jobs:
               git pull --rebase origin "$BRANCH" 2>/dev/null || true
 
               rm -rf videos/ 2>/dev/null || true
-              mkdir -p videos
-              printf '## empty\nfor start go Action tab and use left side workflows\n' > videos/README.md
-              git add -f videos/README.md
+             
               git commit -m "[AVASAM] Clean downloads folder [skip ci]" 2>/dev/null || true
             }
 
